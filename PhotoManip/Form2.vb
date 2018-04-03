@@ -1,24 +1,32 @@
 ﻿Public Class Form2
 
     Private ExifName As String
+    Private ExifVal As String
 
-    Public Sub New(ByVal ExifN)
+    Public Sub New(ByVal ExifN, ByVal ExifV)
+        InitializeComponent()
+
         ExifName = ExifN
+        ExifVal = ExifV
+        Label1.Text = "Edit " & ExifName
+        PrevTagName.Text = PrevTagName.Text.ToString & ExifVal
 
     End Sub
 
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim Label1 As New Label
-        Label1.Location = New Point(111, 91)
-        Label1.Text = ExifName
-        Controls.Add(Label1)
-    End Sub
-
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
 
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs)
-        Label1.Text = ExifName
+    Private Sub SaveButton_Click(sender As Object, e As EventArgs) Handles SaveButton.Click
+        If EditTextBox.Text.ToString.Length <> 0 Then
+            Form1.AxImageBox1.ExifSetAttribute(ExifName, EditTextBox.Text.ToString)
+
+            Form1.ListBox1.Items.Clear()
+            For I = 0 To Form1.AxImageBox1.ExifCount - 1
+                Form1.ListBox1.Items.Add(Form1.AxImageBox1.get_ExifName(I) & ": " & Form1.AxImageBox1.get_ExifValueByIndex(I))
+            Next
+            Form1.ExifChanged = True
+            Me.Close()
+        End If
     End Sub
 End Class

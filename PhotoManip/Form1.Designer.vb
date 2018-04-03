@@ -27,9 +27,9 @@ Partial Class Form1
         Me.loadButton = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.ReadButton = New System.Windows.Forms.Button()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.EditButton = New System.Windows.Forms.Button()
+        Me.SaveImageButton = New System.Windows.Forms.Button()
         CType(Me.AxImageBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -56,21 +56,13 @@ Partial Class Form1
         '
         Me.TextBox1.Location = New System.Drawing.Point(468, 15)
         Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.ReadOnly = True
         Me.TextBox1.Size = New System.Drawing.Size(406, 20)
         Me.TextBox1.TabIndex = 2
         '
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        '
-        'ReadButton
-        '
-        Me.ReadButton.Location = New System.Drawing.Point(549, 52)
-        Me.ReadButton.Name = "ReadButton"
-        Me.ReadButton.Size = New System.Drawing.Size(75, 23)
-        Me.ReadButton.TabIndex = 3
-        Me.ReadButton.Text = "Read Exif"
-        Me.ReadButton.UseVisualStyleBackColor = True
         '
         'ListBox1
         '
@@ -85,21 +77,30 @@ Partial Class Form1
         '
         'EditButton
         '
-        Me.EditButton.Location = New System.Drawing.Point(631, 52)
+        Me.EditButton.Location = New System.Drawing.Point(549, 52)
         Me.EditButton.Name = "EditButton"
         Me.EditButton.Size = New System.Drawing.Size(75, 23)
         Me.EditButton.TabIndex = 5
         Me.EditButton.Text = "Edit Data"
         Me.EditButton.UseVisualStyleBackColor = True
         '
+        'SaveImageButton
+        '
+        Me.SaveImageButton.Location = New System.Drawing.Point(799, 52)
+        Me.SaveImageButton.Name = "SaveImageButton"
+        Me.SaveImageButton.Size = New System.Drawing.Size(75, 23)
+        Me.SaveImageButton.TabIndex = 6
+        Me.SaveImageButton.Text = "Save Image"
+        Me.SaveImageButton.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(886, 488)
+        Me.Controls.Add(Me.SaveImageButton)
         Me.Controls.Add(Me.EditButton)
         Me.Controls.Add(Me.ListBox1)
-        Me.Controls.Add(Me.ReadButton)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.loadButton)
         Me.Controls.Add(Me.AxImageBox1)
@@ -115,7 +116,7 @@ Partial Class Form1
     Friend WithEvents loadButton As Button
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
-    Friend WithEvents ReadButton As Button
     Friend WithEvents ListBox1 As ListBox
     Friend WithEvents EditButton As Button
+    Friend WithEvents SaveImageButton As Button
 End Class
